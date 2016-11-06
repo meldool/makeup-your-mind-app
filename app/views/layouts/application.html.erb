@@ -9,6 +9,24 @@
   </head>
 
   <body>
-    <%= yield %>
+<!-- Source: "Devise Authentication in Depth" - https://www.sitepoint.com/devise-authentication-in-depth/
+      Using flash functionality so Devise can display various messages to the screen. -->
+   
+   <div class="container">
+      <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <%= value %>
+      </div>
+      <% end %>
+    </div>
+
+<!-- yield renders the content stored in both top_content and header. -->
+    <%= yield :top_content %>
+
+    <div class="container">
+      <h1><%= yield :header %></h1>
+      <%= yield %>
+    </div>
+      <!-- < %= yield %> -->
   </body>
 </html>

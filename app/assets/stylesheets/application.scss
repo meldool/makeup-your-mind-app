@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ 
+/* Source: "Devise Authentication in Depth" - https://www.sitepoint.com/devise-authentication-in-depth/
+   Adding 'devise' and 'bootstrap' gems. */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap/theme';
