@@ -9,9 +9,10 @@ gem 'jquery-rails', '4.1.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.4.1'
 # Sourche: "Devise Authentication in Depth" - https://www.sitepoint.com/devise-authentication-in-depth/
-# Adding 'devise' and 'bootstrap' gems.
+# Adding 'devise', 'bootstrap' and 'jquery' gems.
 gem 'devise', '4.2.0'
 gem 'bootstrap-sass'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
