@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   # Routes to the 'pages' controller and then to the 'index' action. -->
    
   root to: 'pages#index'
+  
+
 end

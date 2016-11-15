@@ -1,6 +1,8 @@
 <!-- Source: "Devise Authentication in Depth" - https://www.sitepoint.com/devise-authentication-in-depth/ -->
 
-<% header "Edit #{resource_name.to_s.humanize}" %>
+  <!-- ACCOUNT SETTINGS Page to Edit members Profile Name, Email and/or Passowrd  -->
+  
+<% header "Account Settings" %> <!-- #{current_user.name} / #{resource_name.to_s.humanize}" %> -->
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -17,7 +19,13 @@
       <span class="label label-info">Currently waiting confirmation for: <%= resource.unconfirmed_email %></span>
     <% end %>
   </div>
-
+  
+  <div class="form-group">
+    <%= f.label :current_password %>
+    <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+    <span class="help-block">we need your current password to confirm your changes</span>
+  </div>
+  
   <div class="form-group">
     <%= f.label :password %>
     <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
@@ -27,12 +35,6 @@
   <div class="form-group">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :current_password %>
-    <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
-    <span class="help-block">we need your current password to confirm your changes</span>
   </div>
 
   <%= f.submit "Update", class: 'btn btn-primary' %>
