@@ -3,8 +3,7 @@
   <!-- ACCOUNT SETTINGS Page to Edit members Profile Name, Email and/or Passowrd  -->
   
 <% header "Account Settings" %> <!-- #{current_user.name} / #{resource_name.to_s.humanize}" %> -->
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="form-group">
