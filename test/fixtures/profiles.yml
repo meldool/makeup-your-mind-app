@@ -2,14 +2,14 @@
 
 one:
   full_name: MyString
-  phone: MyString
-  bio: MyString
+  contact_number: MyString
   location: MyString
   makeup_type: MyString
+  bio: MyString
 
 two:
   full_name: MyString
-  phone: MyString
-  bio: MyString
+  contact_number: MyString
   location: MyString
   makeup_type: MyString
+  bio: MyString
