@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
 # Creating association with the 'Profile' model so every user has 1 profile.
   has_one :profile
+  before_create :build_profile # This creates profile at user registration
 end

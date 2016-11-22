@@ -1,2 +1,39 @@
 <h1>Profiles#edit</h1>
 <p>Find me in app/views/profiles/edit.html.erb</p>
+
+<h1>Profile Creation</h1>
+<p>Find me in app/views/member_profiles/edit.html.erb</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  <%= form_for @profile do |f| %>  <!-- , url: {action: "put"} do |f| %> -->
+
+      <%= f.label :full_name %>
+      <%= f.text_field :full_name %>
+
+      <%= f.label :phone %>
+      <%= f.email_field :phone %>
+
+      <%= f.label :location %>
+      <%= f.password_field :location %>
+
+      <%= f.label :makeup_type, "Confirmation" %>
+      <%= f.password_field :makeup_type %>
+
+      <%= f.label :bio, "Confirmation" %>
+      <%= f.password_field :bio %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+	create_table "member_profiles", force: :cascade do |t|
+    t.string   "full_name"
+    t.string   "phone"
+    t.string   "bio"
+    t.string   "location"
+    t.string   "makeup_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
