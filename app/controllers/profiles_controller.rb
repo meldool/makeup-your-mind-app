@@ -1,32 +1,58 @@
 class ProfilesController < ApplicationController
+  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  
   def index
   end
 
 # Creates a new blank Profile page for the Member to fill in.
   def new
-   @profile = Profile.new  
-    # @profile = Profile.find_by user_id: current_user.id
-    # @attributes = Profile.attribute_names - %w(id user_id created_at updated_at)
+    @profile = Profile.new  
+  end
+  
+  def show
   end
 
   def create
-    @profile = Profile.new    # Not the final implementation!
-
-  end
-
-# Reference: https://www.youtube.com/watch?v=BEkpwM-GvMQ
-  def show
-    @profile = Profile.find(params[:id])
-  end
+    @profile = Profile.new(profile_params)
   
-  def edit
-
+    respond_to do |format|
+      if @profile.save
+        format.html { redirect_to @profile, notice: 'Your Profile was successfully created' }
+        format.json { render :show, status: :created, location: @profile }
+      else
+        format.html { render :new }
+        format.json { render json: @profile.errors, status: :unprocessable_entry }
+      end
+    end   
   end
 
   def update
-  end
-
-  def destroy
+    respond_to do |format|
+      if @profile.update(profile_params)
+        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+        format.json { render :show, status: :ok, location: @profile }
+      else
+        format.html { render :edit }
+        format.json { render json: @profile.errors, status: :unprocessable_entity }
+      end
+    end
   end
   
+    def destroy
+    @profile.destroy
+    respond_to do |format|
+      format.html { redirect_to profile_url, notice: 'Profile was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    
+    def set_profile
+      @profile = Profile.find(params[:id])
+    end
+
+    def profile_params
+      params.require(:profile).permit(:full_name, :contact_number, :location, :makeup_type, :bio)
+    end    
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #resources :profiles #, only: [:new]
   
   #get 'profiles/index'
 
@@ -20,7 +21,9 @@ Rails.application.routes.draw do
   
   # Routes to the 'pages' controller and then to the 'index' action. -->
   
-  devise_for :users #, controllers: { registrations: "registrations" }
-  resources :profiles #, only: [:new]
+  resources :profiles
   root to: 'pages#index'
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+
 end
